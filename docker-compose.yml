@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: docker/php/Dockerfile
+    restart: on-failure
+    env_file:
+      - ./docker/php/.env
+    volumes:
+      - ./:/usr/src/app
+
+  nginx:
+    image: nginx:stable-alpine
+    restart: on-failure
+    volumes:
+      - ./public/:/usr/src/app/
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - /srv/app/node_modules
+    ports:
+      - "80:80"
+
+  db:
+    image: mysql
+    restart: always
+    command: mysqld --sql_mode="" 
+    env_file:
+      - ./docker/mysql/.env
+    volumes:
+        - mysql_data.devel:/var/lib/mysql
+        - ./docker/mysql/my.cnf:/etc/my.cnf
+    ports:
+      - "3306:3306/tcp"
+
+volumes:
+  mysql_data.devel:  
