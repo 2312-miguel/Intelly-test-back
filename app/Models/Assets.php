@@ -18,8 +18,22 @@ class Assets extends Model
         "value",
         "name",
         "description",
-        "name_business",
+        "id_user",
         "date_register",
         "image",
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public $attributes = [
+        'date_purchase' => false,
+        'value' => false,
+        'name' => false,
+        'description' => false,
+        'id_user' => false,
+        'image' => false,
     ];
 }

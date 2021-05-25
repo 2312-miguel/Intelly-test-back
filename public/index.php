@@ -3,15 +3,6 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
-/* header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: *");
-header("Allow: *");
-$method = $_SERVER['REQUEST_METHOD'];
-if ($method == "OPTIONS") {
-    die();
-} */
-
 define('LARAVEL_START', microtime(true));
 
 /*

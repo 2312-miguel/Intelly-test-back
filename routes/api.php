@@ -20,14 +20,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /* Auth::routes(); */
 
-Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
-Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::group(['middleware' => ['cors']], function () {
 
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
-    Route::get('assets', [App\Http\Controllers\AssetsController::class, 'index']);
-    Route::get('assets/{article}', [App\Http\Controllers\AssetsController::class, 'show']);
-    Route::post('assets/create', [App\Http\Controllers\AssetsController::class, 'store']);
-    Route::put('assets/update', [App\Http\Controllers\AssetsController::class, 'update']);
-    Route::delete('assets/{article}', [App\Http\Controllers\AssetsController::class, 'delete']);
+    Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+    Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+
+    Route::group(['middleware' => ['auth:api']], function () {
+        Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+        Route::get('assets', [App\Http\Controllers\AssetsController::class, 'index']);
+        Route::get('assets/{article}', [App\Http\Controllers\AssetsController::class, 'show']);
+        Route::post('assets/create', [App\Http\Controllers\AssetsController::class, 'store']);
+        Route::put('assets/update/{id}', [App\Http\Controllers\AssetsController::class, 'update']);
+        Route::delete('assets/{article}', [App\Http\Controllers\AssetsController::class, 'delete']);
+        Route::post('assets/email', [App\Http\Controllers\AssetsController::class, 'sendMail2']);
+    });
 });

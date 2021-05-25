@@ -19,7 +19,6 @@ class CreateAssetsTable extends Migration
             $table->bigInteger('value');
             $table->string('name', 100);
             $table->string('description', 300);
-            $table->string('name_business', 100);
             $table->date('date_register');
             $table->string('image', 100)->nullable();
             $table->timestamps();
