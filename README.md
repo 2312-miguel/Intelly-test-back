@@ -30,6 +30,8 @@ docher-compose up -d
 ```
 composer install
 ```
+---
+
 * Configurar variables de entorno
 
 ```
