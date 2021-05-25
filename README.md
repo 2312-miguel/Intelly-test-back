@@ -11,6 +11,9 @@ _Que cosas necesitas para instalar el software_
 ## Instalacion
 
 _Paso a paso que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+## Arrancar aplicacion (XAMPP)
+
+Agregar proyecto a la ruta : xampp\htdocs
 
 ## Arrancar aplicacion (Docker)
 
@@ -32,7 +35,7 @@ composer install
 ```
 cp .env.example .env
 ```
-Dentro del archivo .env configurar las variables de base de datos
+_Dentro del archivo .env configurar las variables de base de datos_
 
 DB_CONNECTION=mysql  
 DB_HOST=db  
@@ -41,11 +44,24 @@ DB_DATABASE=intelly-test
 DB_USERNAME=intelly-test  
 DB_PASSWORD=intelly-test  
 
-Generar llave de proyecto
+_Configuracion email_
+
+MAIL_MAILER=smtp  
+MAIL_HOST=smtp.googlemail.com  
+MAIL_PORT=587  
+MAIL_USERNAME=user@gmail.com  
+MAIL_PASSWORD=111111  
+MAIL_ENCRYPTION=tls  
+MAIL_FROM_ADDRESS=user@gmail.com  
+MAIL_FROM_NAME="${APP_NAME}"  
+
+_Generar llave de proyecto_
 
 ```
 php artisan key generate
 ```
+
+_Creacion de Tablas en base de datos_
 ```
 php artisan migrate
 ```
