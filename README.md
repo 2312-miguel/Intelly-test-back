@@ -6,7 +6,7 @@ _Prueba de intellygence App Factory_
 
 _Que cosas necesitas para instalar el software_
 
-* Docker
+* Docker | Xampp
 
 ## Instalacion
 
