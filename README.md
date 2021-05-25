@@ -37,6 +37,17 @@ composer install
 ```
 cp .env.example .env
 ```
+
+_Configuracion aplicacion_
+
+APP_NAME=Laravel  
+APP_ENV=local  
+APP_KEY=  
+APP_DEBUG=true  
+APP_URL=http://localhost  
+
+(APP_URL) por defecto http://local.intellytest  
+
 _Dentro del archivo .env configurar las variables de base de datos_
 
 DB_CONNECTION=mysql  
